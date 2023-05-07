@@ -10,6 +10,7 @@
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     <PackageReference Include="Pastel" Version="4.1.0" />
+    <PackageReference Include="starksoft.aspen" Version="1.1.8" />
   </ItemGroup>
 
 </Project>

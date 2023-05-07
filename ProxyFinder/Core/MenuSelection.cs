@@ -13,7 +13,10 @@ namespace ProxyFinder.Core
         public int Index { get; set; }
         public Vector2 Position { get; set; }
         public string Description { get; set; }
+        public string Destination { get; set; }
         public bool CanClick { get; set; }
+        public bool isDescription { get; set; }
+        public bool isDestination { get; set; }
         public Menu SelectMenu { get; set; }
     }
 }

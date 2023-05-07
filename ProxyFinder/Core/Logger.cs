@@ -67,8 +67,10 @@ namespace ProxyFinder.Core
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < _progressBars.Count; i++)
             {
-                int progressBarSize = ((Console.WindowWidth / _progressBars.Count) - (_progressBars[i].Percentage.ToString().Length + 5));
+                if (_progressBars[i].Percentage > 100)
+                    _progressBars[i].Percentage = 100;
 
+                int progressBarSize = ((Console.WindowWidth / _progressBars.Count) - (_progressBars[i].Percentage.ToString().Length + 5));
 
                 int progressBlockCount = (int)(((double)_progressBars[i].Percentage / 100) * progressBarSize);
                 int percent = (int)((double)_progressBars[i].Percentage);
@@ -113,7 +115,12 @@ namespace ProxyFinder.Core
 
         public void UpdateProgressBar(int index, int value)
         {
-            _progressBars[index].Percentage = value;
+            if (value > 100)
+                _progressBars[index].Percentage = 100;
+            else if (value < 1)
+                _progressBars[index].Percentage = 0;
+            else
+                _progressBars[index].Percentage = value;
         }
 
         public void CancelProgressBar(int index)

@@ -34,6 +34,8 @@ namespace ProxyFinder.Core
             ms.Position = new Vector2(_startPosition.X, _startPosition.Y + (_ms.Count * 2));
             ms.SelectMenu = menu;
 
+            ms.isDescription = false;
+            ms.isDestination = false;
             ms.CanClick = true;
             _selectableAmount++;
 
@@ -47,7 +49,23 @@ namespace ProxyFinder.Core
             ms.Position = new Vector2(_startPosition.X, _startPosition.Y + (_ms.Count * 2));
             ms.Description = description;
 
+            ms.isDescription = true;
+            ms.isDestination = false;
             ms.CanClick = false;
+
+            this._ms.Add(ms);
+        }
+
+        public void AddDestination(string destination)
+        {
+            MenuSelection ms = new MenuSelection();
+            ms.Index = this._ms.Count;
+            ms.Position = new Vector2(_startPosition.X, _startPosition.Y + (_ms.Count * 2));
+            ms.Destination = destination;
+
+            ms.CanClick = false;
+            ms.isDescription = false;
+            ms.isDestination = true;
 
             this._ms.Add(ms);
         }
