@@ -68,7 +68,8 @@ namespace ProxyFinder
 
         private static void OnStartMenuEnter(object obj)
         {
-            
+            SearchProxies sp = new SearchProxies();
+            sp.Search();
         }
 
         private static void OnMenuEnter(object obj)
